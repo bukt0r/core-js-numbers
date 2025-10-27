@@ -314,7 +314,7 @@ function getSumOfDigits(num) {
 /**
  * Returns true if the given number is a power of two, false otherwise.
  *
- * @param {number}
+ * @param {number} num
  * @return {boolean}
  *
  * @example:
@@ -417,7 +417,7 @@ function toPrecision(number, precision) {
  * Number(-5)    => -5
  */
 function getNumberValue(number) {
-  return number.valueOf(number);
+  return number.valueOf();
 }
 
 /**
@@ -617,12 +617,11 @@ function getRandomInteger(min, max) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
-  // const x = a / 100;
-  // const y = b / 100;
-  // const result = Math.sqrt(x * x + y * y) * 100;
-  // return result === Infinity ? Number.MAX_VALUE : result;
+function getHypotenuse(a, b) {
+  const x = a / 100;
+  const y = b / 100;
+  const result = Math.sqrt(x * x + y * y) * 100;
+  return result === Infinity ? Number.MAX_VALUE : result;
 }
 
 /**
