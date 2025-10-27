@@ -104,8 +104,13 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dot = x1 * x2 + y1 * y2;
+  const length1 = Math.sqrt(x1 * x1 + y1 * y1);
+  const length2 = Math.sqrt(x2 * x2 + y2 * y2);
+  const cos = dot / (length1 * length2);
+  const safeCos = Math.min(1, Math.max(-1, cos));
+  return Math.acos(safeCos);
 }
 
 /**
@@ -317,8 +322,14 @@ function getSumOfDigits(num) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  if (num <= 0) return false;
+  let n = num;
+  while (n % 2 === 0) {
+    n /= 2;
+  }
+
+  return n === 1;
 }
 
 /**
@@ -592,8 +603,8 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
